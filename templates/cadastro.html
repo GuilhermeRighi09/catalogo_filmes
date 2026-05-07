@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevFLIX - Criar Conta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-page">
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="login-logo">
+                <div class="logo">Dev<span>FLIX</span></div>
+            </div>
+
+            <h2 class="login-title">Criar Conta</h2>
+            <p class="login-subtitle">Preencha os dados abaixo para começar.</p>
+
+            {% if erro %}
+            <div class="login-error">
+                <span class="login-error-icon">⚠️</span>
+                <span>{{ erro }}</span>
+            </div>
+            {% endif %}
+
+            <form action="/cadastro" method="POST" class="login-form">
+                <div class="input-group">
+                    <input type="text" name="nome" id="nome" placeholder=" " required>
+                    <label for="nome">Nome Completo</label>
+                    <div class="input-highlight"></div>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" name="email" id="email" placeholder=" " required>
+                    <label for="email">E-mail</label>
+                    <div class="input-highlight"></div>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" name="senha" id="senha" placeholder=" " required>
+                    <label for="senha">Senha (8+ chars e especial)</label>
+                    <div class="input-highlight"></div>
+                </div>
+
+                <button type="submit" class="btn-login">
+                    Cadastrar agora
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p style="color: #8c8c8c;">
+                    Já tem uma conta?
+                    <a href="/" style="color: #e50914; text-decoration: none; font-weight: bold;">Fazer Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
